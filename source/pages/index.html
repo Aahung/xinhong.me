@@ -1,0 +1,90 @@
+{% extends "template/layout.html" %}
+{% block title %} I am not a programmer {% endblock %}
+{% block header %}
+
+<img class="img-responsive" src="/img/me_square_white.png" alt="">
+<div class="intro-text" style="margin-top: -60px">
+    <span class="name">Xinhong LIU</span>
+    <hr class="star-light">
+    <span class="skills">I am not a programmer</span>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Portfolio Grid Section -->
+<section id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Portfolio</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            {% set items = [
+                ("CityU Sport Facility", ["fa-apple", "fa-android"], "/img/portfolio/usports.png", "cityu-sport-facility/"),
+                ("CityU Library", ["fa-apple"], "/img/portfolio/ulibrary.png", "https://itunes.apple.com/hk/app/cityu-library/id964974420?mt=8&uo=4"),
+                ("Cool Editor", ["fa-windows"], "/img/portfolio/cooleditor.png", "http://www.windowsphone.com/en-us/store/app/cool-editor/96ce6e64-c136-456f-9563-1d55b712c3cb?signin=true"),
+                ("Send2Phone", ["fa-windows"], "/img/portfolio/send2phone.png", "/idea/send2phone/"),
+                ("TimesheettyU", ["fa-cloud"], "/img/portfolio/timesheettyu.png", "/idea/ics/"),
+            ] -%}
+            {% for title, icons, img, href in items %}
+            <div class="col-sm-4 portfolio-item">
+                <a href="{{href}}" class="portfolio-link" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            {% for icon in icons %}
+                            {% if loop.index > 1 %}
+                            |
+                            {% endif %}
+                            <i class="fa {{icon}} fa-3x"></i>
+                            {% endfor %}
+                            <hr >
+                            {{title}}
+                        </div>
+                    </div>
+                    <img src="{{img}}" class="img-responsive" alt="">
+                </a>
+                <center class="visible-sm visible-xs">{{title}}</center>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="success" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>About</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <p>This is xinhong.me, and I am Xinhong. Currently I am a student. I love to make something and here they are.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Contact Me</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <p class="text-center">Mail me at <a href="mailto:i@xinhong.me">i@xinhong.me</a>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
